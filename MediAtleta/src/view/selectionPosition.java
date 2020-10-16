@@ -243,22 +243,24 @@ public class selectionPosition extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnPontEsqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPontEsqActionPerformed
-        
-        
-        atacante tela = new atacante();
-        tela.setVisible(true);
-        
-        
-        
-        
+                
+        pontaDirEsq ponta = new pontaDirEsq();
+        ponta.setVisible(true);     
+                        
     }//GEN-LAST:event_btnPontEsqActionPerformed
 
     private void btnPontDirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPontDirActionPerformed
-        // TODO add your handling code here:
+       
+        pontaDirEsq ponta = new pontaDirEsq();
+        ponta.setVisible(true); 
+        
     }//GEN-LAST:event_btnPontDirActionPerformed
 
     private void btnMeioCampo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMeioCampo1ActionPerformed
-        // TODO add your handling code here:
+        
+        meioCampo meio = new meioCampo();
+        meio.setVisible(true);
+        
     }//GEN-LAST:event_btnMeioCampo1ActionPerformed
 
     private void btnAtacante3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtacante3ActionPerformed
@@ -269,7 +271,10 @@ public class selectionPosition extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAtacante3ActionPerformed
 
     private void btnVolanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolanteActionPerformed
-        // TODO add your handling code here:
+       
+        volante volante = new volante();
+        volante.setVisible(true);
+        
     }//GEN-LAST:event_btnVolanteActionPerformed
 
     private void btnGoleiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGoleiroActionPerformed
@@ -280,27 +285,43 @@ public class selectionPosition extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGoleiroActionPerformed
 
     private void btnAtacante6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtacante6ActionPerformed
-        // TODO add your handling code here:
+        // DESATIVADO
+        // DESATIVADO
     }//GEN-LAST:event_btnAtacante6ActionPerformed
 
     private void btnLatEsqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLatEsqActionPerformed
-        // TODO add your handling code here:
+        
+        LateralDirEsq lateral = new LateralDirEsq();
+        lateral.setVisible(true);
+        
     }//GEN-LAST:event_btnLatEsqActionPerformed
 
     private void btnLatDirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLatDirActionPerformed
-        // TODO add your handling code here:
+        
+        LateralDirEsq lateral = new LateralDirEsq();
+        lateral.setVisible(true);
+        
     }//GEN-LAST:event_btnLatDirActionPerformed
 
     private void btnZagueiro1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnZagueiro1ActionPerformed
-        // TODO add your handling code here:
+        
+        zagueiro zagueiro = new zagueiro();
+        zagueiro.setVisible(true);
+        
     }//GEN-LAST:event_btnZagueiro1ActionPerformed
 
     private void btnZagueiro2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnZagueiro2ActionPerformed
-        // TODO add your handling code here:
+        
+        zagueiro zagueiro = new zagueiro();
+        zagueiro.setVisible(true);
+        
     }//GEN-LAST:event_btnZagueiro2ActionPerformed
 
     private void btnMeioCampo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMeioCampo2ActionPerformed
-        // TODO add your handling code here:
+        
+        meioCampo meio = new meioCampo();
+        meio.setVisible(true);
+        
     }//GEN-LAST:event_btnMeioCampo2ActionPerformed
 
     /**

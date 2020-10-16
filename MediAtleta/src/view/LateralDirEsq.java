@@ -52,6 +52,7 @@ public class LateralDirEsq extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Adicionando Lateral Direito/Esquerdo");
 
         txtNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -308,7 +309,8 @@ public class LateralDirEsq extends javax.swing.JFrame {
                 .addGap(49, 49, 49))
         );
 
-        pack();
+        setSize(new java.awt.Dimension(837, 447));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     public void limparCampos() {
