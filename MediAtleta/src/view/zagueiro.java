@@ -1,16 +1,20 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package telas;
 
-package view;
-
-import data.JogadorDao;
-import business.Calculos;
+import Calculos.Calculos;
+import data.CadastroDao;
+import data.Jogador;
 import javax.swing.JOptionPane;
 
-public class zagueiro extends javax.swing.JFrame {
+public class Zagueiro extends javax.swing.JFrame {
 
-    /**
-     * Creates new form zagueiro
-     */
-    public zagueiro() {
+    Calculos calc = new Calculos();
+   
+    public Zagueiro() {
         initComponents();
     }
 
@@ -23,15 +27,19 @@ public class zagueiro extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtNome = new javax.swing.JTextField();
-        btnSalvar = new javax.swing.JButton();
-        btnLimpFormulario = new javax.swing.JButton();
-        btnMedia = new javax.swing.JButton();
-        txtMedia = new javax.swing.JTextField();
-        txtNumCamisa = new javax.swing.JTextField();
-        txtPosicao = new javax.swing.JTextField();
-        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        txtMedia = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        btnVoltar7 = new javax.swing.JButton();
+        txtNumCamisa = new javax.swing.JTextField();
+        btnSalvar = new javax.swing.JButton();
+        txtNome = new javax.swing.JTextField();
+        btnMedia = new javax.swing.JButton();
+        btnLimpFormulario = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -45,18 +53,38 @@ public class zagueiro extends javax.swing.JFrame {
         txtCobrPenalti = new javax.swing.JTextField();
         txtCobrFalta = new javax.swing.JTextField();
         txtDrible = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        btnVoltar = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Adicionando Zagueiro");
 
-        txtNome.addActionListener(new java.awt.event.ActionListener() {
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setText("Zagueiro");
+
+        jLabel3.setText("Nº da Camisa");
+
+        jLabel12.setText("Pontuação");
+
+        txtMedia.setEditable(false);
+        txtMedia.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        jLabel4.setText("Nome");
+
+        btnVoltar7.setBackground(new java.awt.Color(255, 153, 153));
+        btnVoltar7.setText("Voltar");
+        btnVoltar7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNomeActionPerformed(evt);
+                btnVoltar7ActionPerformed(evt);
+            }
+        });
+        btnVoltar7.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnVoltar7KeyPressed(evt);
+            }
+        });
+
+        txtNumCamisa.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtNumCamisa.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNumCamisaKeyTyped(evt);
             }
         });
 
@@ -69,6 +97,20 @@ public class zagueiro extends javax.swing.JFrame {
             }
         });
 
+        txtNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNomeActionPerformed(evt);
+            }
+        });
+
+        btnMedia.setBackground(new java.awt.Color(204, 204, 204));
+        btnMedia.setText("Mostra Pontuação");
+        btnMedia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMediaActionPerformed(evt);
+            }
+        });
+
         btnLimpFormulario.setBackground(new java.awt.Color(153, 204, 255));
         btnLimpFormulario.setText("Limpar Formulário");
         btnLimpFormulario.addActionListener(new java.awt.event.ActionListener() {
@@ -77,23 +119,9 @@ public class zagueiro extends javax.swing.JFrame {
             }
         });
 
-        btnMedia.setBackground(new java.awt.Color(204, 204, 204));
-        btnMedia.setText("Mostra Média");
-        btnMedia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMediaActionPerformed(evt);
-            }
-        });
-
-        txtPosicao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPosicaoActionPerformed(evt);
-            }
-        });
-
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
-        jLabel1.setText("Ritmo");
+        jLabel2.setText("Ritmo");
 
         jLabel6.setText("Finalização");
 
@@ -101,27 +129,51 @@ public class zagueiro extends javax.swing.JFrame {
 
         jLabel8.setText("Passe");
 
+        txtPasse.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtPasse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPasseActionPerformed(evt);
             }
         });
+        txtPasse.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPasseKeyTyped(evt);
+            }
+        });
 
+        txtDefesa.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtDefesa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDefesaActionPerformed(evt);
             }
         });
+        txtDefesa.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDefesaKeyTyped(evt);
+            }
+        });
 
+        txtRitmo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtRitmo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtRitmoActionPerformed(evt);
             }
         });
+        txtRitmo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtRitmoKeyTyped(evt);
+            }
+        });
 
+        txtFinalizacao.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtFinalizacao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtFinalizacaoActionPerformed(evt);
+            }
+        });
+        txtFinalizacao.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtFinalizacaoKeyTyped(evt);
             }
         });
 
@@ -131,21 +183,42 @@ public class zagueiro extends javax.swing.JFrame {
 
         jLabel9.setText("Penalti");
 
+        txtCobrPenalti.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtCobrPenalti.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCobrPenaltiActionPerformed(evt);
             }
         });
+        txtCobrPenalti.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtCobrPenaltiKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCobrPenaltiKeyTyped(evt);
+            }
+        });
 
+        txtCobrFalta.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtCobrFalta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCobrFaltaActionPerformed(evt);
             }
         });
+        txtCobrFalta.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCobrFaltaKeyTyped(evt);
+            }
+        });
 
+        txtDrible.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtDrible.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDribleActionPerformed(evt);
+            }
+        });
+        txtDrible.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDribleKeyTyped(evt);
             }
         });
 
@@ -153,254 +226,235 @@ public class zagueiro extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(46, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(txtCobrPenalti, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtDrible, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtCobrFalta, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(txtDefesa, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(txtPasse, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(18, 18, 18)
                             .addComponent(txtRitmo, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(18, 18, 18)
                             .addComponent(txtFinalizacao, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtCobrPenalti, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(txtDrible, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(txtCobrFalta, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(24, 24, 24))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtRitmo, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(5, 5, 5)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(19, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtRitmo, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(5, 5, 5)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtFinalizacao, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtDefesa, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtPasse, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtDrible, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(5, 5, 5)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtCobrFalta, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtCobrPenalti, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap())
+                    .addComponent(txtFinalizacao, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtDefesa, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtPasse, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtDrible, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(5, 5, 5)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCobrFalta, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCobrPenalti, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
-
-        jLabel2.setText("Media");
-
-        btnVoltar.setBackground(new java.awt.Color(255, 153, 153));
-        btnVoltar.setText("Voltar");
-        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVoltarActionPerformed(evt);
-            }
-        });
-
-        jLabel4.setText("Nome");
-
-        jLabel3.setText("Nº da Camisa");
-
-        jLabel11.setText("Posição");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnVoltar)
-                .addGap(750, 750, 750))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(39, 39, 39)
+                        .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtNumCamisa, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(37, 37, 37)
-                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtPosicao, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtNumCamisa, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(45, 45, 45)
-                        .addComponent(btnLimpFormulario)
-                        .addGap(98, 98, 98)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtMedia, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnMedia, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 99, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(128, 128, 128)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(72, 72, 72)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnLimpFormulario)
+                            .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(btnVoltar7))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(250, 250, 250))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtMedia, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnMedia, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(btnVoltar7, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(41, 41, 41)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtNumCamisa, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)
+                        .addComponent(btnLimpFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNumCamisa, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPosicao, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnMedia, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtMedia, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnLimpFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(49, 49, 49))
+                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtMedia, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnMedia, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(53, 53, 53))
         );
 
-        setSize(new java.awt.Dimension(837, 447));
+        setSize(new java.awt.Dimension(697, 538));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    public void limparCampos() {
-        txtFinalizacao.setText("");
-        txtRitmo.setText("");
-        txtDrible.setText("");
-        txtDefesa.setText("");
-        txtPasse.setText("");
-        txtCobrFalta.setText("");
-        txtCobrPenalti.setText("");
-        txtMedia.setText("");
-        txtNome.setText("");
-        txtNumCamisa.setText("");
-        txtPosicao.setText("");
-    }
+    private void btnVoltar7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltar7ActionPerformed
+        new positionSelector().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnVoltar7ActionPerformed
+
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+Jogador jogador;
+    jogador = new Jogador();
+    jogador.setNome(txtNome.getText());
+    jogador.setNumcamisa(Double.parseDouble(txtNumCamisa.getText()));
+    jogador.setRitmo(Double.parseDouble(txtRitmo.getText()));
+    jogador.setFinalizacao(Double.parseDouble(txtFinalizacao.getText()));
+    jogador.setDefesa(Double.parseDouble(txtDefesa.getText()));
+    jogador.setPasse(Double.parseDouble(txtPasse.getText()));
+    jogador.setDrible(Double.parseDouble(txtDrible.getText()));
+    jogador.setCobrFalta(Double.parseDouble(txtCobrFalta.getText()));
+    jogador.setCobrPenalti(Double.parseDouble(txtCobrPenalti.getText()));
+    jogador.setPosicao("Zagueiro");
     
+    CadastroDao dao;
+        dao = new CadastroDao();
+        boolean status = dao.conectar();
+        if(status==false){
+            JOptionPane.showMessageDialog(null,"Erro na conexão");
+        }
+        else {
+          int resposta =  dao.salvarJogador(jogador);
+          if (resposta==1){
+              JOptionPane.showMessageDialog(null,"Salvo com sucesso");
+          
+          }
+          else{
+              JOptionPane.showMessageDialog(null,"Erro na gravação. COntate o administrador do sistema");
+          }
+        }
+    
+    
+        
+    }//GEN-LAST:event_btnSalvarActionPerformed
+
     private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNomeActionPerformed
 
-    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        Calculos calc = new Calculos();
-        boolean status;
-
-        if (txtRitmo.getText().equals("") || txtDrible.getText().equals("") || txtFinalizacao.getText().equals("") || txtDefesa.getText().equals("") || txtPasse.getText().equals("") || txtCobrPenalti.getText().equals("") || txtCobrFalta.getText().equals("") || txtNome.getText().equals("") || txtNumCamisa.getText().equals("") || txtPosicao.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Algum campo não foi prenchido");
-        } else if (txtMedia.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Média não calculada");
-        } else {
-
-            calc.setRitmo(Byte.parseByte(txtRitmo.getText()));
-            calc.setDrible(Byte.parseByte(txtDrible.getText()));
-            calc.setFinalizacao(Byte.parseByte(txtFinalizacao.getText()));
-            calc.setDefesa(Byte.parseByte(txtDefesa.getText()));
-            calc.setPasse(Byte.parseByte(txtPasse.getText()));
-            calc.setCobrPenalti(Byte.parseByte(txtCobrPenalti.getText()));
-            calc.setCobrFalta(Byte.parseByte(txtCobrFalta.getText()));
-            calc.setMedia(txtMedia.getText());
-            calc.setNumCamisa(Byte.parseByte(txtNumCamisa.getText()));
-            calc.setNome(txtNome.getText());
-            calc.setPosicao(txtPosicao.getText());
-
-            JogadorDao a = new JogadorDao();
-
-            status = a.conectar();
-
-            if (status == false) {
-                JOptionPane.showMessageDialog(null, " não pegou");
-            } else {
-                status = a.salvarJogador(calc);
-
-                if (status == true) {
-                    if (txtMedia.getText() == null) {
-                        JOptionPane.showMessageDialog(null, " faltou a media");
-                    } else {
-                        JOptionPane.showMessageDialog(null, "sucesso");
-                    }
-
-                }
-
-            }
-        }
-    }//GEN-LAST:event_btnSalvarActionPerformed
-
-    private void btnLimpFormularioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpFormularioActionPerformed
-
-        limparCampos();
-    }//GEN-LAST:event_btnLimpFormularioActionPerformed
-
     private void btnMediaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMediaActionPerformed
-        Calculos calc = new Calculos();
 
-        calc.setRitmo(Byte.parseByte(txtRitmo.getText()));
+         if(txtRitmo.getText().isEmpty()){
+          txtRitmo.setText("0");
+      }if(txtPasse.getText().isEmpty()){
+          txtPasse.setText("0");
+      }if(txtDefesa.getText().isEmpty()){
+          txtDefesa.setText("0");
+      }if(txtCobrFalta.getText().isEmpty()){
+          txtCobrFalta.setText("0");
+      }if(txtCobrPenalti.getText().isEmpty()){
+          txtCobrPenalti.setText("0");
+      }if(txtDrible.getText().isEmpty()){
+          txtDrible.setText("0");
+      }if(txtFinalizacao.getText().isEmpty()){
+          txtFinalizacao.setText("0");
+      }
         calc.setDrible(Byte.parseByte(txtDrible.getText()));
+        calc.setCobrFalta(Byte.parseByte(txtCobrFalta.getText()));
+        calc.setCobrPenalti(Byte.parseByte(txtCobrPenalti.getText()));
         calc.setFinalizacao(Byte.parseByte(txtFinalizacao.getText()));
+        calc.setRitmo(Byte.parseByte(txtRitmo.getText()));
         calc.setDefesa(Byte.parseByte(txtDefesa.getText()));
         calc.setPasse(Byte.parseByte(txtPasse.getText()));
-        calc.setCobrPenalti(Byte.parseByte(txtCobrPenalti.getText()));
-        calc.setCobrFalta(Byte.parseByte(txtCobrFalta.getText()));
-        calc.setMedia(txtMedia.getText());
-        calc.setNumCamisa(Byte.parseByte(txtNumCamisa.getText()));
-        calc.setNome(txtNome.getText());
-
-        calc.setMedia(calc.atacante(calc.getRitmo(), calc.getDrible(), calc.getFinalizacao(), calc.getDefesa(), calc.getPasse(), calc.getCobrFalta(), calc.getCobrPenalti()));
+        calc.zagueiro(Float.parseFloat(txtRitmo.getText()), Float.parseFloat(txtDrible.getText()), Float.parseFloat(txtFinalizacao.getText()), Float.parseFloat(txtDefesa.getText()), Float.parseFloat(txtPasse.getText()), Float.parseFloat(txtCobrPenalti.getText()), Float.parseFloat(txtCobrFalta.getText()));
         txtMedia.setText(calc.getMedia());
     }//GEN-LAST:event_btnMediaActionPerformed
 
-    private void txtPosicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPosicaoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPosicaoActionPerformed
+    private void btnLimpFormularioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpFormularioActionPerformed
+      txtNome.setText("");
+      txtNumCamisa.setText("");
+      txtRitmo.setText("");
+      txtFinalizacao.setText("");
+      txtDefesa.setText("");
+      txtPasse.setText("");
+      txtDrible.setText("");
+      txtCobrFalta.setText("");
+      txtCobrPenalti.setText("");
+      txtMedia.setText("");
+    }//GEN-LAST:event_btnLimpFormularioActionPerformed
 
     private void txtPasseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasseActionPerformed
         // TODO add your handling code here:
@@ -419,7 +473,30 @@ public class zagueiro extends javax.swing.JFrame {
     }//GEN-LAST:event_txtFinalizacaoActionPerformed
 
     private void txtCobrPenaltiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCobrPenaltiActionPerformed
-        // TODO add your handling code here:
+ if(txtRitmo.getText().isEmpty()){
+          txtRitmo.setText("0");
+      }if(txtPasse.getText().isEmpty()){
+          txtPasse.setText("0");
+      }if(txtDefesa.getText().isEmpty()){
+          txtDefesa.setText("0");
+      }if(txtCobrFalta.getText().isEmpty()){
+          txtCobrFalta.setText("0");
+      }if(txtCobrPenalti.getText().isEmpty()){
+          txtCobrPenalti.setText("0");
+      }if(txtDrible.getText().isEmpty()){
+          txtDrible.setText("0");
+      }if(txtFinalizacao.getText().isEmpty()){
+          txtFinalizacao.setText("0");
+      }
+        calc.setDrible(Byte.parseByte(txtDrible.getText()));
+        calc.setCobrFalta(Byte.parseByte(txtCobrFalta.getText()));
+        calc.setCobrPenalti(Byte.parseByte(txtCobrPenalti.getText()));
+        calc.setFinalizacao(Byte.parseByte(txtFinalizacao.getText()));
+        calc.setRitmo(Byte.parseByte(txtRitmo.getText()));
+        calc.setDefesa(Byte.parseByte(txtDefesa.getText()));
+        calc.setPasse(Byte.parseByte(txtPasse.getText()));
+        calc.zagueiro(Float.parseFloat(txtRitmo.getText()), Float.parseFloat(txtDrible.getText()), Float.parseFloat(txtFinalizacao.getText()), Float.parseFloat(txtDefesa.getText()), Float.parseFloat(txtPasse.getText()), Float.parseFloat(txtCobrPenalti.getText()), Float.parseFloat(txtCobrFalta.getText()));
+        txtMedia.setText(calc.getMedia());        // TODO add your handling code here:
     }//GEN-LAST:event_txtCobrPenaltiActionPerformed
 
     private void txtCobrFaltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCobrFaltaActionPerformed
@@ -430,13 +507,160 @@ public class zagueiro extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDribleActionPerformed
 
-    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-        selectionPosition position = new selectionPosition();
-        position.setVisible(true);
-        atacante tela = new atacante();
-        tela.dispose();
-        tela.setVisible(false);
-    }//GEN-LAST:event_btnVoltarActionPerformed
+    private void txtNumCamisaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumCamisaKeyTyped
+        
+        if (evt.getKeyChar() == evt.VK_BACK_SPACE || (evt.getKeyChar() == evt.VK_0)|| (evt.getKeyChar() == evt.VK_1)|| (evt.getKeyChar() == evt.VK_2) 
+            || (evt.getKeyChar() == evt.VK_3)|| (evt.getKeyChar() == evt.VK_4)|| (evt.getKeyChar() == evt.VK_5)|| (evt.getKeyChar() == evt.VK_6)|| (evt.getKeyChar() == evt.VK_7)
+            || (evt.getKeyChar() == evt.VK_8)|| (evt.getKeyChar() == evt.VK_9)||(evt.getKeyChar() == evt.VK_ENTER))
+          {          
+        
+          }
+        else
+          {
+            evt.consume();
+          }
+        int numero = 3;
+        if(txtNumCamisa.getText().length()>=numero){
+          evt.consume();
+        }
+    }//GEN-LAST:event_txtNumCamisaKeyTyped
+
+    private void txtRitmoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRitmoKeyTyped
+        
+        if (evt.getKeyChar() == evt.VK_BACK_SPACE || (evt.getKeyChar() == evt.VK_0)|| (evt.getKeyChar() == evt.VK_1)|| (evt.getKeyChar() == evt.VK_2) 
+            || (evt.getKeyChar() == evt.VK_3)|| (evt.getKeyChar() == evt.VK_4)|| (evt.getKeyChar() == evt.VK_5)|| (evt.getKeyChar() == evt.VK_6)|| (evt.getKeyChar() == evt.VK_7)
+            || (evt.getKeyChar() == evt.VK_8)|| (evt.getKeyChar() == evt.VK_9)||(evt.getKeyChar() == evt.VK_ENTER))
+          {          
+        
+          }
+        else
+          {
+            evt.consume();
+          }
+        int numero = 2;
+        if(txtRitmo.getText().length()>=numero){
+          evt.consume();
+        }
+    }//GEN-LAST:event_txtRitmoKeyTyped
+
+    private void txtFinalizacaoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFinalizacaoKeyTyped
+        
+        if (evt.getKeyChar() == evt.VK_BACK_SPACE || (evt.getKeyChar() == evt.VK_0)|| (evt.getKeyChar() == evt.VK_1)|| (evt.getKeyChar() == evt.VK_2) 
+            || (evt.getKeyChar() == evt.VK_3)|| (evt.getKeyChar() == evt.VK_4)|| (evt.getKeyChar() == evt.VK_5)|| (evt.getKeyChar() == evt.VK_6)|| (evt.getKeyChar() == evt.VK_7)
+            || (evt.getKeyChar() == evt.VK_8)|| (evt.getKeyChar() == evt.VK_9)||(evt.getKeyChar() == evt.VK_ENTER))
+          {          
+        
+          }
+        else
+          {
+            evt.consume();
+          }
+        int numero = 2;
+        if(txtFinalizacao.getText().length()>=numero){
+          evt.consume();
+        }
+    }//GEN-LAST:event_txtFinalizacaoKeyTyped
+
+    private void txtDefesaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDefesaKeyTyped
+        
+        if (evt.getKeyChar() == evt.VK_BACK_SPACE || (evt.getKeyChar() == evt.VK_0)|| (evt.getKeyChar() == evt.VK_1)|| (evt.getKeyChar() == evt.VK_2) 
+            || (evt.getKeyChar() == evt.VK_3)|| (evt.getKeyChar() == evt.VK_4)|| (evt.getKeyChar() == evt.VK_5)|| (evt.getKeyChar() == evt.VK_6)|| (evt.getKeyChar() == evt.VK_7)
+            || (evt.getKeyChar() == evt.VK_8)|| (evt.getKeyChar() == evt.VK_9)||(evt.getKeyChar() == evt.VK_ENTER))
+          {          
+        
+          }
+        else
+          {
+            evt.consume();
+          }
+        int numero = 2;
+        if(txtDefesa.getText().length()>=numero){
+          evt.consume();
+        }
+    }//GEN-LAST:event_txtDefesaKeyTyped
+
+    private void txtPasseKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPasseKeyTyped
+        
+        if (evt.getKeyChar() == evt.VK_BACK_SPACE || (evt.getKeyChar() == evt.VK_0)|| (evt.getKeyChar() == evt.VK_1)|| (evt.getKeyChar() == evt.VK_2) 
+            || (evt.getKeyChar() == evt.VK_3)|| (evt.getKeyChar() == evt.VK_4)|| (evt.getKeyChar() == evt.VK_5)|| (evt.getKeyChar() == evt.VK_6)|| (evt.getKeyChar() == evt.VK_7)
+            || (evt.getKeyChar() == evt.VK_8)|| (evt.getKeyChar() == evt.VK_9)||(evt.getKeyChar() == evt.VK_ENTER))
+          {          
+        
+          }
+        else
+          {
+            evt.consume();
+          }
+        int numero = 2;
+        if(txtPasse.getText().length()>=numero){
+          evt.consume();
+        }
+    }//GEN-LAST:event_txtPasseKeyTyped
+
+    private void txtDribleKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDribleKeyTyped
+        
+        if (evt.getKeyChar() == evt.VK_BACK_SPACE || (evt.getKeyChar() == evt.VK_0)|| (evt.getKeyChar() == evt.VK_1)|| (evt.getKeyChar() == evt.VK_2) 
+            || (evt.getKeyChar() == evt.VK_3)|| (evt.getKeyChar() == evt.VK_4)|| (evt.getKeyChar() == evt.VK_5)|| (evt.getKeyChar() == evt.VK_6)|| (evt.getKeyChar() == evt.VK_7)
+            || (evt.getKeyChar() == evt.VK_8)|| (evt.getKeyChar() == evt.VK_9)||(evt.getKeyChar() == evt.VK_ENTER))
+          {          
+        
+          }
+        else
+          {
+            evt.consume();
+          }
+        int numero = 2;
+        if(txtDrible.getText().length()>=numero){
+          evt.consume();
+        }
+    }//GEN-LAST:event_txtDribleKeyTyped
+
+    private void txtCobrFaltaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCobrFaltaKeyTyped
+        
+        if (evt.getKeyChar() == evt.VK_BACK_SPACE || (evt.getKeyChar() == evt.VK_0)|| (evt.getKeyChar() == evt.VK_1)|| (evt.getKeyChar() == evt.VK_2) 
+            || (evt.getKeyChar() == evt.VK_3)|| (evt.getKeyChar() == evt.VK_4)|| (evt.getKeyChar() == evt.VK_5)|| (evt.getKeyChar() == evt.VK_6)|| (evt.getKeyChar() == evt.VK_7)
+            || (evt.getKeyChar() == evt.VK_8)|| (evt.getKeyChar() == evt.VK_9)||(evt.getKeyChar() == evt.VK_ENTER))
+          {          
+        
+          }
+        else
+          {
+            evt.consume();
+          }
+        int numero = 2;
+        if(txtCobrFalta.getText().length()>=numero){
+          evt.consume();
+        }
+    }//GEN-LAST:event_txtCobrFaltaKeyTyped
+
+    private void txtCobrPenaltiKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCobrPenaltiKeyTyped
+ 
+        if (evt.getKeyChar() == evt.VK_BACK_SPACE || (evt.getKeyChar() == evt.VK_0)|| (evt.getKeyChar() == evt.VK_1)|| (evt.getKeyChar() == evt.VK_2) 
+            || (evt.getKeyChar() == evt.VK_3)|| (evt.getKeyChar() == evt.VK_4)|| (evt.getKeyChar() == evt.VK_5)|| (evt.getKeyChar() == evt.VK_6)|| (evt.getKeyChar() == evt.VK_7)
+            || (evt.getKeyChar() == evt.VK_8)|| (evt.getKeyChar() == evt.VK_9)||(evt.getKeyChar() == evt.VK_ENTER))
+          {          
+        
+          }
+        else
+          {
+            evt.consume();
+          }
+        int numero = 2;
+        if(txtCobrPenalti.getText().length()>=numero){
+          evt.consume();
+        }
+    }//GEN-LAST:event_txtCobrPenaltiKeyTyped
+
+    private void txtCobrPenaltiKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCobrPenaltiKeyPressed
+        // TODO add your handling code here:
+       
+    }//GEN-LAST:event_txtCobrPenaltiKeyPressed
+
+    private void btnVoltar7KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnVoltar7KeyPressed
+        // TODO add your handling code here:
+        new positionSelector().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnVoltar7KeyPressed
 
     /**
      * @param args the command line arguments
@@ -455,20 +679,21 @@ public class zagueiro extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(zagueiro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Zagueiro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(zagueiro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Zagueiro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(zagueiro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Zagueiro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(zagueiro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Zagueiro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new zagueiro().setVisible(true);
+                new Zagueiro().setVisible(true);
             }
         });
     }
@@ -477,10 +702,10 @@ public class zagueiro extends javax.swing.JFrame {
     private javax.swing.JButton btnLimpFormulario;
     private javax.swing.JButton btnMedia;
     private javax.swing.JButton btnSalvar;
-    private javax.swing.JButton btnVoltar;
+    private javax.swing.JButton btnVoltar7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -499,7 +724,6 @@ public class zagueiro extends javax.swing.JFrame {
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtNumCamisa;
     private javax.swing.JTextField txtPasse;
-    private javax.swing.JTextField txtPosicao;
     private javax.swing.JTextField txtRitmo;
     // End of variables declaration//GEN-END:variables
 }
