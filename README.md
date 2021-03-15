@@ -1,7 +1,7 @@
-# Projeto Java - Segundo Semestre Uninove
+# MediAtleta - Projeto Java do Segundo Semestre na Uninove (2020)
 
- Projeto java feito por mim e colegas de classe, onde decidimos por em nossos perfis o todo o nosso trabalho feito.
+Projeto java feito por mim e colegas de classe, onde decidimos por em nossos perfis todo o nosso trabalho feito.
  
- Esse é um programa onde é possivel criar cadastros e consulta-los, mas não é apenas isso.
+Esse é um programa onde é possivel criar cadastros e consulta-los, mas não se limita à apenas isso.
 	
- Fizemos com o intuito de criar cadastros de atletas. Mais especificamente, jogadores de futebol. Onde é possivel armazenar todo o perfil do atleta, como, seu chute ao gol, seu ritmo, o passe, e outros, e usar esses dados como base para escolhas de comparação e possivelmente decisões a serem feitas sobre o jogador. Será util para manter o rendimento sempre supervisionado e ter como o atleta progride ou regride em seu aspecto físico.
+Fizemos com o intuito de criar cadastros de atletas. Mais especificamente, jogadores de futebol. Onde é possivel armazenar todo o perfil do atleta, como, seu chute ao gol, seu ritmo, o passe, e outros, e usar esses dados como base para escolhas de comparação e possivelmente decisões a serem feitas sobre o jogador. Será util para manter o rendimento sempre supervisionado e ter como o atleta progride ou regride em seu aspecto físico.
